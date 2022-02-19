@@ -36,9 +36,14 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class      instance    title       tags mask     isfloating   monitor */
-    {"Gimp", NULL, NULL, 0, 1, -1},
-    {"Firefox", NULL, NULL, 1 << 8, 0, -1},
+
+    /* class	instance title	tags mask		isfloating		x,
+     * y, w, h monitor
+     */
+
+    {"Gimp", NULL, NULL, 0, 1, -1, -1, -1, -1, -1},
+    {"Qalculate-gtk", NULL, NULL, 0, 1, .35, 35, .3, .5, -1},
+
 };
 
 /* layout(s) */
@@ -78,9 +83,12 @@ static const char *dmenucmd[] = {
     "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
 static const char *termcmd[] = {"st", NULL};
+static const scratchpad qalculate = {.class = "Qalculate-gtk",
+                                     .v = (char *[]){"qalculate-gtk", NULL}};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
+    {ControlMask, XK_s, togglescratch, {.v = &qalculate}},
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_b, togglebar, {0}},
