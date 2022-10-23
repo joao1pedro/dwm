@@ -2,8 +2,8 @@
 picom &
 dwmblocks &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
-sh ~/.screenlayout/lg_primary.sh &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+nitrogen --restore
+#feh --bg-fill '/home/joao/Pictures/wallpapers/space.jpg' &
 numlockx on &
-nitrogen --restore &
-
+wmname LG3D &
