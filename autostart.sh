@@ -6,4 +6,5 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 nitrogen --restore
 #feh --bg-fill '/home/joao/Pictures/wallpapers/space.jpg' &
 numlockx on &
+nm-applet &
 wmname LG3D &
